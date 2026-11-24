@@ -2,6 +2,8 @@
   const data = window.PORTFOLIO, grid = document.querySelector('#project-grid');
   const projectDialog = document.querySelector('#project-dialog'), lightbox = document.querySelector('#lightbox');
   let activeFilter = 'all', currentImages = [], currentIndex = 0;
+  document.addEventListener('contextmenu', e => { if (e.target.closest('img')) e.preventDefault(); });
+  document.addEventListener('dragstart', e => { if (e.target.closest('img')) e.preventDefault(); });
   document.querySelector('#year').textContent = new Date().getFullYear();
   document.querySelectorAll('[data-linkedin]').forEach(a => { if (data.linkedin) a.href = data.linkedin; else { a.href = '#contact'; a.removeAttribute('target'); } });
   function render() {
